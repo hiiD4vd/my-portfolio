@@ -1,0 +1,91 @@
+/* src/components/Workflow/Workflow.css */
+.wf-section {
+  width: 100%;
+  height: 400vh; /* Durasi scroll */
+  position: relative;
+  background: transparent;
+}
+
+.wf-sticky-container {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.wf-header {
+  margin-bottom: 3rem;
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: white;
+  text-align: center;
+  /* Mulai dengan opacity 0 agar diatur GSAP */
+  opacity: 0;
+}
+
+.wf-card-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 2000px;
+  width: 400px; /* Lebar awal (terlihat seperti 1 gambar) */
+  height: 500px;
+  gap: 0; /* Mulai tanpa jarak */
+}
+
+.wf-card {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  transform-style: preserve-3d;
+  will-change: transform, border-radius;
+  overflow: visible;
+}
+
+.wf-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.wf-front {
+  background: #09090b; /* Zinc 950 */
+  z-index: 2;
+}
+
+/* Tulisan angka di depan agar lebih kontras */
+.wf-front h3 {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #27272a; /* Zinc 800 */
+}
+
+.wf-back {
+  transform: rotateY(180deg);
+  border-radius: inherit;
+}
+
+/* Border radius awal agar menyatu jadi 1 kotak */
+.wf-card:nth-child(1) {
+  border-radius: 30px 0 0 30px;
+}
+.wf-card:nth-child(2) {
+  border-radius: 0;
+}
+.wf-card:nth-child(3) {
+  border-radius: 0 30px 30px 0;
+}

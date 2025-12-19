@@ -1,0 +1,56 @@
+.scroll-stack-scroller {
+  position: relative;
+  width: 100%;
+  height: auto; /* Ubah ke auto agar mengikuti flow halaman */
+  overflow: visible important; /* Pastikan overflow terlihat */
+  overscroll-behavior: contain;
+}
+
+.scroll-stack-card {
+  transform-origin: top center;
+  will-change: transform, filter;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); */
+  height: auto; /* Tinggi kartu sertifikat */
+  width: 100%;
+  max-width: 800px;
+  margin: 30px 0;
+  /* padding: 2rem; */
+  /* border-radius: 24px; */
+  box-sizing: border-box;
+  position: relative;
+  /* Warna agar senada dengan UI-mu */
+  /* background: linear-gradient(145deg, #1a1a1a, #0a0a0a); */
+  border: 1px solid rgba(139, 92, 246, 0.3); /* Border ungu tipis */
+}
+
+.scroll-stack-end {
+  width: 100%;
+  height: 50px;
+}
+
+/* src/components/ScrollStack/ScrollStack.css */
+
+.scroll-stack-inner {
+  /* Beri padding bawah yang sangat besar (80vh-100vh) 
+     agar kartu terakhir bisa berhenti menumpuk dengan sempurna sebelum footer muncul */
+  padding: 10vh 2rem 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scroll-stack-card {
+  height: 500px; /* Atur tinggi tetap agar semua kartu seragam */
+  width: 100%;
+  max-width: 850px; /* Lebar kartu agar terlihat elegan */
+  margin: 0 !important; /* Biarkan itemDistance di JS yang mengatur jaraknya */
+  /* Pastikan shadow terlihat saat kartu menumpuk di atas satu sama lain */
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.5), 0 20px 50px rgba(0, 0, 0, 0.8);
+}
+
+/* Tambahkan efek gelap tipis pada kartu yang tertumpuk di bawah */
+.scroll-stack-card:not(:last-child) {
+  filter: brightness(0.8);
+}
