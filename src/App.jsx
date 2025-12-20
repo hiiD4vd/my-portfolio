@@ -26,7 +26,7 @@ import "aos/dist/aos.css";
 import "animate.css";
 
 // PERBAIKAN: Sesuai catatan di file aslimu agar tidak error
-import Hero from "./components/hero";
+import Hero from "./components/Hero";
 
 AOS.init();
 
